@@ -119,7 +119,7 @@ docker compose up --build
 2. Make all your changes (bug fixes, config, infrastructure) and commit to your fork
 3. Fill out `SOLUTION.md` with your documentation
 4. **Add `siddharth-rodrigues` as a collaborator** on your forked repo (Settings > Collaborators)
-5. Email **jithin.jose@airawath.com** with:
+5. Email **siddharth.rodrigues@airawath.com** with:
    - Link to your forked repo
    - Public URL where the app is running
    - Any notes about your approach
