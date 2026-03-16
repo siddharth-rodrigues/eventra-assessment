@@ -1,0 +1,60 @@
+[project]
+authors = [{ name = "Eventra Dev Team", email = "dev@eventra.io" }]
+dependencies = [
+    "alembic>=1.13.0",
+    "asyncpg>=0.29.0",
+    "apscheduler>=3.10.0",
+    "bcrypt>=4.1.0",
+    "fastapi>=0.115.0",
+    "pydantic-settings>=2.3.0",
+    "pydantic[email]>=2.7.0",
+    "pyjwt>=2.8.0",
+    "python-multipart>=0.0.9",
+    "sqlalchemy[asyncio]>=2.0.30",
+    "prometheus-fastapi-instrumentator>=7.0.0",
+]
+description = "Eventra - Event management platform API"
+name = "eventra"
+requires-python = ">=3.12,<3.13"
+version = "1.0.0"
+
+[dependency-groups]
+dev = [
+    "coverage>=7.4.0",
+    "freezegun>=1.3.0",
+    "greenlet>=3.0.0",
+    "httpx>=0.27.0",
+    "polyfactory>=2.15.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "pytest-xdist>=3.5.0",
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+    "uvicorn[standard]>=0.30.0",
+]
+
+[tool.uv]
+package = false
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pytest.ini_options]
+addopts = "-vv --cov --cov-report term-missing"
+asyncio_default_test_loop_scope = "session"
+asyncio_mode = "auto"
+filterwarnings = [""]
+testpaths = ["app"]
+
+[tool.coverage.run]
+concurrency = ["greenlet"]
+omit = ["alembic/*", "app/tests/*", "conftest.py", "test_*.py"]
+source = ["app"]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = ["E501"]
+select = ["E", "F", "I", "PL", "UP", "W"]
